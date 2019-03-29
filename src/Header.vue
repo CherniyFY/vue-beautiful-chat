@@ -29,7 +29,7 @@ export default {
   },
   methods: {
     toggleUserList() {
-      this.inUserList = !this.inUserList
+      this.inUserList = this.inUserList
       this.$emit("userList", this.inUserList)
     }
   },

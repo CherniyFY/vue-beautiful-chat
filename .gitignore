@@ -58,3 +58,6 @@ typings/
 .env
 
 dist
+
+# No need in this
+package-lock.json

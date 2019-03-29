@@ -1,11 +1,17 @@
 <template>
   <div>
-    <div class="sc-launcher" :class="{opened: isOpen}" @click.prevent="isOpen ? close() : open()" :style="{backgroundColor: colors.launcher.bg}">
-      <div v-if="newMessagesCount > 0 && !isOpen" class="sc-new-messsages-count">
-        {{newMessagesCount}}
-      </div>
-      <img class="sc-open-icon" src="./assets/close-icon.png" />
-      <img class="sc-closed-icon" src="./assets/logo-no-bg.svg" />
+    <div
+      class="sc-launcher"
+      :class="{opened: isOpen}"
+      @click.prevent="isOpen ? close() : open()"
+      :style="{backgroundColor: colors.launcher.bg}"
+    >
+      <div
+        v-if="newMessagesCount > 0 && !isOpen"
+        class="sc-new-messsages-count"
+      >{{newMessagesCount}}</div>
+      <img class="sc-open-icon" src="./assets/close-icon.png">
+      <img class="sc-closed-icon" src="./assets/logo-no-bg.svg">
     </div>
     <ChatWindow
       :messageList="messageList"
@@ -85,20 +91,24 @@ export default {
     colors: {
       type: Object,
       required: false,
-      validator: c => 
-        'header' in c
-        && 'bg' in c.header && 'text' in c.header
-        && 'launcher' in c
-        && 'bg' in c.launcher
-        && 'messageList' in c
-        && 'bg' in c.messageList
-        && 'sentMessage' in c
-        && 'bg' in c.sentMessage && 'text' in c.sentMessage
-        && 'receivedMessage' in c
-        && 'bg' in c.receivedMessage && 'text' in c.receivedMessage
-        && 'userInput' in c
-        && 'bg' in c.userInput && 'text' in c.userInput,
-      default: function () {
+      validator: c =>
+        'header' in c &&
+        'bg' in c.header &&
+        'text' in c.header &&
+        'launcher' in c &&
+        'bg' in c.launcher &&
+        'messageList' in c &&
+        'bg' in c.messageList &&
+        'sentMessage' in c &&
+        'bg' in c.sentMessage &&
+        'text' in c.sentMessage &&
+        'receivedMessage' in c &&
+        'bg' in c.receivedMessage &&
+        'text' in c.receivedMessage &&
+        'userInput' in c &&
+        'bg' in c.userInput &&
+        'text' in c.userInput,
+      default: function() {
         return {
           header: {
             bg: '#4e8cff',
@@ -139,12 +149,7 @@ export default {
       if (this.title !== '') {
         return this.title
       }
-
-      if (this.participants.length > 1) {
-        return 'You, ' + this.participants[0].name + ' & others'
-      } else {
-        return 'You & ' + this.participants[0].name
-      }
+      return this.participants[0].name
     }
   },
   components: {
@@ -172,7 +177,7 @@ export default {
   position: relative;
   display: block;
   width: 60px;
-  height: 60px;  
+  height: 60px;
   border-radius: 50%;
   transition: box-shadow 0.2s ease-in-out;
 }
@@ -214,7 +219,7 @@ export default {
 }
 
 .sc-launcher:hover {
-  box-shadow: 0 0px 27px 1.5px rgba(0,0,0,0.2);
+  box-shadow: 0 0px 27px 1.5px rgba(0, 0, 0, 0.2);
 }
 
 .sc-new-messsages-count {
@@ -225,7 +230,7 @@ export default {
   justify-content: center;
   flex-direction: column;
   border-radius: 50%;
-	width: 22px;
+  width: 22px;
   height: 22px;
   background: #ff4646;
   color: white;
